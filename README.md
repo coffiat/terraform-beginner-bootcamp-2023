@@ -149,7 +149,11 @@ This will generate out the changeset about the state of our infrastructure and w
 
 `terraform apply`
 
-this will run a plan and pass the changeset to be execute by terraform.Apply should prompt yes or no.
+This will run a plan and pass the changeset to be execute by terraform.Apply should prompt yes or no.
+
+While creating the bucket name, it did not allow upper case letter in the name, so we had to go back to the documentation to make sure we were on the right path.
+
+[bucket naming rule](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html)
 
 If we want to automatically approve an apply, we can provide the auto approve flag eg. `terraform apply --auto-approve`
 
