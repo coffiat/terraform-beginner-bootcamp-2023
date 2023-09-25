@@ -190,6 +190,7 @@ The workaround is manually generate a token in Terraform Cloud
 
 https://app.terraform.io/app/settings/tokens
 ```
+
 Then create open the file manually here:
 
 ```sh
@@ -208,4 +209,4 @@ Provide the following code (replace your token in the file):
   }
 }
 ```
-Then open the file
+We have automated this workaround with the following bash scrip [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
