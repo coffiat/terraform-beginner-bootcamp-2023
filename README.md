@@ -1,4 +1,11 @@
 # Terraform Beginner Bootcamp 2023
+## Table of Content
+
+- [Semantic versioning](#semantic-versioning)
+- [Install the terraform CLI]
+(#install-the-terraform-cli)
+- [Consideration of the Terraform CLI changes](#consideration-of-the-terraform-cli-changes)
+
 
 ## Semantic Versioning
 
@@ -12,6 +19,8 @@ The general format:
 - **MAJOR** version when you make incompatible API changes
 - **MINOR** version when you add functionality in a backward-compatible manner
 - **PATCH** version when you make backward compatible bug fixes
+
+## Install The Terraform CLI
 
 ### Considerations for Linux Distribution
 
@@ -210,3 +219,5 @@ Provide the following code (replace your token in the file):
 }
 ```
 We have automated this workaround with the following bash scrip [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
+
