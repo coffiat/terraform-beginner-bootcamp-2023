@@ -4,7 +4,7 @@
 
 ## Weekly Journals
 
-- [Week 0 Journal](https://github.com/coffiat/terraform-beginner-bootcamp-2023/blob/22-create-toc-readme/bin/Journal/Week%200)
+- [week0 journal](https://github.com/coffiat/terraform-beginner-bootcamp-2023/blob/22-create-toc-readme/Journal/week0.md)
 
 ## Extras
 
