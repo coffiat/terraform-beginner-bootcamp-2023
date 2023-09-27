@@ -4,7 +4,7 @@
 
 ## Weekly Journals
 
-- [Week 0 Journal](Journal/week0.md)
+- [Week 0 Journal](22-create-toc-readme/bin/Journal)
 
 ## Extras
 
