@@ -1,5 +1,33 @@
 # Terraform Beginner Bootcamp 2023
 
+  * [Semantic Versioning](#semantic-versioning)
+  * [Install the terraform CLI](#install-the-terraform-cli)
+    + [Consideration with the Terraform CLI changes](#consideration-with-the-terraform-cli-changes)
+    + [Considerations for Linux Distribution](#considerations-for-linux-distribution)
+    + [Refactoring into Bash Scripts](#refactoring-into-bash-scripts)
+      - [Shebang Considerations](#shebang-considerations)
+      - [Execution Considerations](#execution-considerations)
+      - [Linux Permission Considerations](#linux-permission-considerations)
+  * [Gitpod Lifecycle](#gitpod-lifecycle)
+  * [Working with Env Vars](#working-with-env-vars)
+      - [env command](#env-command)
+      - [Setting and unsetting env vars](#setting-and-unsetting-env-vars)
+      - [Printing Vars](#printing-vars)
+      - [Scoping of Env Vars](#scoping-of-env-vars)
+      - [Persisting Env Vars in Gitpod](#persisting-env-vars-in-gitpod)
+  * [AWC CLI Installation](#awc-cli-installation)
+  * [Terraform Basics](#terraform-basics)
+    + [Terraform Registry](#terraform-registry)
+    + [Terraform Console](#terraform-console)
+      - [Terraform Init](#terraform-init)
+      - [Terraform Plan](#terraform-plan)
+      - [Terraform apply](#terraform-apply)
+      - [Terraform Destroy](#terraform-destroy)
+      - [Terraform Lock files](#terraform-lock-files)
+      - [Terraform State Files](#terraform-state-files)
+      - [Terraform Directory](#terraform-directory)
+  * [Issues with terraform Cloud Login and gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
+
 ## Semantic Versioning
 
 This project is going to utilize semantic versioning for its tagging.
