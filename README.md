@@ -7,7 +7,11 @@
 
 - [week 0 journal](journal/week0.md)
 
+<<<<<<< HEAD
 - - [week 1 journal](journal/week1.md)
+=======
+- [week 1 journal](journal/week1.md)
+>>>>>>> 22-create-toc-readme
 
 ## Extras
 
