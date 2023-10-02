@@ -59,7 +59,7 @@ In terraform, the order of variable definitions in your configuration files does
 
 - declaration : variables are declared at the beginning of your terraform configuration files using the `variable`block.
 
- .Example of variable declarations
+.Example of variable declarations
 
 ```variable "region" {
   description = "The AWS region"
@@ -84,13 +84,15 @@ resource "aws_instance" "example" {
   ami           = "ami-0c55b159cbfafe1f0"
   instance_type = var.instance_type
 }
+```
 
 In terraform, when a variable is defined in multiple place, the order of precedence determines which value is used.
 
 ## Dealing with configuration drift
 
 ## What happens if we lose our state file?
-If you lose your state file, you most likely to have to tear down all your cloud infrastructure manually. 
+
+If you lose your state file, you most likely to have to tear down all your cloud infrastructure manually.
 
 You can use terraform import but it will not work for all the cloud resources. You need to check the terraform providers documentation for which resources support import
 
@@ -99,13 +101,14 @@ You can use terraform import but it will not work for all the cloud resources. Y
 `terraform import aws_s3_bucket.example`
 
 [Terraform Inport](https://developer.hashicorp.com/terraform/language/import)
+
 [AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#argument-reference)
 
 ### Fix Manual Configuration
 
 Let assume that a new developper mistankly goes and delete or modifiy cloud resource manually through clickOps.
 
-Running Terraform plan helps with attempt to put our infrastructure back into the expected state, fixing configuration drift
+Running Terraform plan helps with attempt to put our infrastructure back into the expected state, fixing configuration drift.
 
 ## Fix using terraform Refresh
 
@@ -146,3 +149,42 @@ module "terrahouse-aws" {
 ```
 
 [Modules Sources](https://developer.hashicorp.com/terraform/language/modules/sources)
+
+## Consideration when using chatGPT to write Terraform
+
+LLMS such as ChatGPT may not be trained on the latest documentation or information about Terraform.
+
+It maylikely produce older example that could be deprecated. Often affecting providers.
+
+## Working with  files in Terraform
+
+### Fileexists function
+
+This is a built in terraform function to check the existence of a file.
+
+```condition  = fileexists(var.error-html_filepath)
+```
+
+[Fileexit function](https://developer.hashicorp.com/terraform/language/functions/fileexists)
+
+### Filemd5
+
+[file.md](https://developer.hashicorp.com/terraform/language/functions/filemd5)
+
+
+
+### Path Variable
+
+In Terraform there is a special variable called `path` that allows us to reference local path:
+
+- path.module = get the path for the current module
+- path.root = get the path for the root module
+
+[Special Path variable](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
+
+
+ resource "aws_s3_object" "index_html" {
+  bucket = aws_s3_bucket.website_bucket.bucket
+  key    = "index.html"
+  source = "${path.root}/public/index.html"
+ }

@@ -17,3 +17,19 @@ variable "bucket_name" {
     error_message = "Invalid bucket name. Bucket names must be between 3 and 63 characters in length and can contain only lowercase letters, numbers, hyphens, and dots. They must start and end with a lowercase letter or number."
   }
 }
+
+variable "index_html_filepath" {
+  description = "Path to the index.html file"
+  type        = string
+
+}
+
+variable "error_html_filepath" {
+  description = "Path to the error.html file"
+  type        = string
+
+  validation {
+    condition     = can(file(var.error_html_filepath))
+    error_message = "The provided error_html_path does not point to a valid file."
+  }
+}
