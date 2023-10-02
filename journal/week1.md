@@ -20,7 +20,7 @@ Our  root module structure is as follow:
 
 ### Terraform Cloud Variables
 
-We can set two kind of variables:
+We can set two kinds of variables:
 
 - Environment variables - those you would set in your bash terminal eg. AWS credentials
 - terraform variables - those that you would normally set in your tfvars files
@@ -33,11 +33,11 @@ We can set terraform Cloud variable to be sensitive so they are not visible in t
 
 ### Var flag
 
-We can use the `-var` flag to set an input variables or override a variable in the tfvars file eg. `terraform-var user_ud="my-user-id"`
+We can use the `-var` flag to set an input variable or override a variable in the tfvars file eg. `terraform-var user_ud="my-user-id"`
 
 ### Var-file flag
 
-According to chatGPT, the `-var.file` flag in terraform is used to specify a file containing variable value. which allows you to separate your variable value from your main terraform configuration files, providing a cleaner and more flexible way to manage configurations, especially across different environments. Most importantly, the `-var-file` flag is useful for keeping sensitive information separate, managing configurations for different environments, and making your terraform code more modular.
+According to chatGPT, the `-var.file` flag in Terraform is used to specify a file containing the variable value. which allows you to separate your variable value from your main terraform configuration files, providing a cleaner and more flexible way to manage configurations, especially across different environments. Most importantly, the `-var-file` flag is useful for keeping sensitive information separate, managing configurations for different environments, and making your terraform code more modular.
 
 When running terraform commands with `-var-file`flag:
 
@@ -51,13 +51,13 @@ This is the default file to load in terraform variable in blunk
 
 ### Auto.tfvars
 
-In the terraform , `auto.tfvars` is a special filename that is automatically loaded by terraform to set variable value. This is used to define default values for your variables without requiring explicit input on the command line or within the configuration files.
+In the terraform, `auto.tfvars` is a special filename that is automatically loaded by terraform to set variable value. This is used to define default values for your variables without requiring explicit input on the command line or within the configuration files.
 
 ### Order of terraform variables
 
-In terraform, the order of variable definitions in your configuration files doesn't matter. Terraform uses a two-step process for variable validation and assignment:
+In Terraform, the order of variable definitions in your configuration files doesn't matter. Terraform uses a two-step process for variable validation and assignment:
 
-- declaration : variables are declared at the beginning of your terraform configuration files using the `variable`block.
+- declaration: variables are declared at the beginning of your terraform configuration files using the `variable`block.
 
  .Example of variable declarations
 
@@ -72,7 +72,7 @@ variable "instance_type" {
 }
 ```
 
-- assignment : variable value can be assigned through various methods such as command- line flags, variable files, environment variables, or default set within the configuration file
+- assignment : variable value can be assigned through various methods such as command-line flags, variable files, environment variables, or default set within the configuration file
 
 . Example of variable assignment
 
@@ -85,14 +85,14 @@ resource "aws_instance" "example" {
   instance_type = var.instance_type
 }
 
-In terraform, when a variable is defined in multiple place, the order of precedence determines which value is used.
+In terraform, when a variable is defined in multiple places, the order of precedence determines which value is used.
 
 ## Dealing with configuration drift
 
 ## What happens if we lose our state file?
-If you lose your state file, you most likely to have to tear down all your cloud infrastructure manually. 
+If you lose your state file, you are most likely to have to tear down all your cloud infrastructure manually. 
 
-You can use terraform import but it will not work for all the cloud resources. You need to check the terraform providers documentation for which resources support import
+You can use Terraform import but it will not work for all the cloud resources. You need to check the terraform provider's documentation for which resources support import
 
 ### Fix Missing Resources with Terraform Import
 
@@ -103,6 +103,6 @@ You can use terraform import but it will not work for all the cloud resources. Y
 
 ### Fix Manual Configuration
 
-Let assume that a new developper mistankly goes and delete or modifiy cloud resource manually through clickOps.
+Let's assume that a new developer mistakenly goes and delete or modifies cloud resource manually through clickOps.
 
-Running Terraform plan helps with attempt to put our infrastructure back into the expected state, fixing configuration drift
+Running the Terraform plan helps with the attempt to put our infrastructure back into the expected state, fixing configuration drift
