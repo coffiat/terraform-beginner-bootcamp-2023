@@ -2,9 +2,9 @@
 
 ## Root module structure
 
-```
 Our  root module structure is as follow:
-PROJECT_ROOT
+
+```PROJECT_ROOT
 │
 ├── main.tf                # Everything else - varies based on your specific requirements
 ├── variable.tf            # Stores the structure of input variables
@@ -15,7 +15,6 @@ PROJECT_ROOT
 ```
 
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
-
 
 ## Terraform and input variables
 
@@ -41,10 +40,11 @@ We can use the `-var` flag to set an input variables or override a variable in t
 According to chatGPT, the `-var.file` flag in terraform is used to specify a file containing variable value. which allows you to separate your variable value from your main terraform configuration files, providing a cleaner and more flexible way to manage configurations, especially across different environments. Most importantly, the `-var-file` flag is useful for keeping sensitive information separate, managing configurations for different environments, and making your terraform code more modular.
 
 When running terraform commands with `-var-file`flag:
-```
-terraform apply -var-file=variables.tfvars
+
+```terraform apply -var-file=variables.tfvars
 
 ```
+
 ### Terraform.tfvars
 
 This is the default file to load in terraform variable in blunk
@@ -57,11 +57,11 @@ In the terraform , `auto.tfvars` is a special filename that is automatically loa
 
 In terraform, the order of variable definitions in your configuration files doesn't matter. Terraform uses a two-step process for variable validation and assignment:
 
- *  declaration : variables are declared at the beginning of your terraform configuration files using the `variable`block.
+- declaration : variables are declared at the beginning of your terraform configuration files using the `variable`block.
 
- ```
- # Example of variable declarations
-variable "region" {
+ .Example of variable declarations
+
+```variable "region" {
   description = "The AWS region"
   type        = string
 }
@@ -72,11 +72,11 @@ variable "instance_type" {
 }
 ```
 
-*   assignment : variable value can be assigned through various methods such as command- line flags, variable files, environment variables, or default set within the configuration file
+- assignment : variable value can be assigned through various methods such as command- line flags, variable files, environment variables, or default set within the configuration file
 
-```
-# Example of variable assignment
-provider "aws" {
+. Example of variable assignment
+
+```provider "aws" {
   region = var.region
 }
 
@@ -85,6 +85,24 @@ resource "aws_instance" "example" {
   instance_type = var.instance_type
 }
 
-In terraform, when a variable is defined in multiple place, the order of precedence determines which value is used. 
+In terraform, when a variable is defined in multiple place, the order of precedence determines which value is used.
 
+## Dealing with configuration drift
 
+## What happens if we lose our state file?
+If you lose your state file, you most likely to have to tear down all your cloud infrastructure manually. 
+
+You can use terraform import but it will not work for all the cloud resources. You need to check the terraform providers documentation for which resources support import
+
+### Fix Missing Resources with Terraform Import
+
+`terraform import aws_s3_bucket.example`
+
+[Terraform Inport](https://developer.hashicorp.com/terraform/language/import)
+[AWS S3 Bucket Import](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket#argument-reference)
+
+### Fix Manual Configuration
+
+Let assume that a new developper mistankly goes and delete or modifiy cloud resource manually through clickOps.
+
+Running Terraform plan helps with attempt to put our infrastructure back into the expected state, fixing configuration drift
