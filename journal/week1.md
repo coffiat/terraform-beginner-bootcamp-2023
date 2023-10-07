@@ -194,8 +194,6 @@ This is a built in terraform function to check the existence of a file.
 
 [file.md](https://developer.hashicorp.com/terraform/language/functions/filemd5)
 
-
-
 ### Path Variable
 
 In Terraform there is a special variable called `path` that allows us to reference local path:
@@ -205,9 +203,48 @@ In Terraform there is a special variable called `path` that allows us to referen
 
 [Special Path variable](https://developer.hashicorp.com/terraform/language/expressions/references#filesystem-and-workspace-info)
 
-
  resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
   source = "${path.root}/public/index.html"
  }
+
+## Terraform Locals
+
+Locals allow us to define locals variables. It can be very useful when we need to transform data into another format and have them referenced. 
+```tf
+locals {
+    s3_origin_id="MyS3origin"
+}
+```
+
+[Locals Values](https://developer.hashicorp.com/terraform/language/values/locals)
+
+## Terraform Data sources
+
+This allows use to source data from cloud resources.
+
+This is useful when we want to reference cloud resources without importing them
+
+```
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+```
+
+[Data Sources](https://developer.hashicorp.com/terraform/language/data-sources)
+
+## Working with JSON
+
+We used the jsonencode to create the json policy inline in the hcl
+
+```tf
+> jsonencode({"hello"="world"})
+{"hello":"world"}
+
+```
+
+
+[jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
