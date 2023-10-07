@@ -33,3 +33,13 @@ variable "error_html_filepath" {
     error_message = "The provided error_html_path does not point to a valid file."
   }
 }
+
+variable "content_version" {
+  type        = number
+  description = "Version number for content"
+  
+  validation {
+    condition     = var.content_version >= 0
+    error_message = "Content version must be a positive integer."
+  }
+}

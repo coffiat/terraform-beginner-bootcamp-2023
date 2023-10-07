@@ -14,4 +14,8 @@ variable "error_html_filepath" {
   type        = string
 }
 
+variable "content_version" {
+  type        = number
+  }
+
 # The regex pattern used in the validation condition checks for a standard UUID format.
