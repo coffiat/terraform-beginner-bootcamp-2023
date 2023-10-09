@@ -39,7 +39,7 @@ variable "content_version" {
   description = "Version number for content"
   
   validation {
-    condition     = var.content_version >= 0
-    error_message = "Content version must be a positive integer."
+    condition     = var.content_version > 0 && floor(var.content_version) == var.content_version
+    error_message = "The content_version must be a positive integer starting at 1."
   }
 }
