@@ -46,6 +46,6 @@ variable "content_version" {
 
 variable "assets_path" {
   description = "Path to asstes folder"
-  string
+ type = string
   
 }
