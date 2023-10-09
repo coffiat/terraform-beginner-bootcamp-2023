@@ -211,7 +211,8 @@ In Terraform there is a special variable called `path` that allows us to referen
 
 ## Terraform Locals
 
-Locals allow us to define locals variables. It can be very useful when we need to transform data into another format and have them referenced. 
+Locals allow us to define locals variables. It can be very useful when we need to transform data into another format and have them referenced.
+
 ```tf
 locals {
     s3_origin_id="MyS3origin"
@@ -309,3 +310,16 @@ resource "aws_instance" "web" {
 ```
 
 https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec
+
+## For each Expressions
+
+For each allows us to enumerate over complex data types
+
+```sh
+[for s in var.list : upper(s)]
+
+```
+
+This is mostly useful when creating multiples of a cloud resource and you want to reduce the amount of repetitive terraform code.
+
+[For Each Expression](https://developer.hashicorp.com/terraform/language/expressions/for)

@@ -35,8 +35,21 @@ resource "aws_s3_bucket_website_configuration" "website_configuration" {
         replace_triggered_by = [ terraform_data.content.output ]
     ignore_changes = [ etag ]
     }
-
 }
+
+resource "aws_s3_object" "upload_assets" {
+    for_each = fileset(var.assets_path,"*.{jpg,png,gif}")
+    bucket = aws_s3_bucket.website_bucket.bucket
+    key    = "assets/${each.key}"
+    source ="${var.assets_path}/${each.key}"
+    #content_type = "test/html"
+    etag = filemd5("${var.assets_path}/${each.key}")
+    lifecycle {
+        replace_triggered_by = [ terraform_data.content.output ]
+    ignore_changes = [ etag ]
+    }
+}
+
 
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object
@@ -79,3 +92,5 @@ etag = filemd5(var.error_html_filepath)
 resource "terraform_data" "content" {
   input = var.content_version
 }
+
+
