@@ -11,7 +11,7 @@ tasks:
   - name: sinatra
     before: |
       cd $PROJECT_ROOT
-      cd terraform_mock-server
+      cd terratowns_mock_server
       bundle install
       bundle exec ruby server.rb 
   - name: aws-cli
@@ -33,4 +33,4 @@ vscode:
   extensions:
     - amazonwebservices.aws-toolkit-vscode
     - hashicorp.terraform
-    - phil294.git-log--graph
+    - phil293.git-log--graph 
