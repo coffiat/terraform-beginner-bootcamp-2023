@@ -1,3 +1,4 @@
+
 // Package Declaration: In Go, there are two types of packages: executable and non-executable.
 // The package main declaration indicates that this Go file is intended to create an executable program, not a reusable library.
 // In Go, the main package is a special package, and it's the entry point for running an executable program.
