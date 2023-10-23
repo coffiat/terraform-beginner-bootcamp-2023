@@ -1,8 +1,16 @@
+
+module github.com/Examproco/terraform-provider-terratowns
+
+go 1.20
+
+replace github.com/Examproco/terraform-provider-terratowns => /workspace/terraform-beginner-bootcamp-2023/terraform-provider-terratowns
+=======
 module github.com/ExamProCo/terraform-provider-terratowns
 
 go 1.20
 
 replace github.com/ExamProCo/terraform-provider-terraforms => /workspace/terraform-beginner-bootcamp-2023/terraform-provider-terratowns
+
 
 require (
 	github.com/agext/levenshtein v1.2.2 // indirect
