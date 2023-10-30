@@ -1,8 +1,9 @@
 tasks:
 
   - name: terraform
-    before: |
-      cd $PROJECT_ROOT
+    env:
+        TF_LOG: DEBUG
+    before:  |
       source ./bin/set_tf_alias
       source ./bin/install_terraform_cli
       source ./bin/generate_tfrc_credentials
