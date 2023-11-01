@@ -1,6 +1,7 @@
+terratowns_endpoint  = "https://terratowns.cloud/api"
 user_uuid= "a0821aa6-10de-401f-88d1-fabdb7b5fffa"
 bucket_name= "0xexg4s7x0p7ukhcugixlb6wsg7n78sh"
 index_html_filepath = "/workspace/terraform-beginner-bootcamp-2023/public/index.html"
 error_html_filepath = "/workspace/terraform-beginner-bootcamp-2023/public/error.html"
-assets_path = "/workspace/terraform-beginner-bootcamp-2023/public/public/assets"
-content_version = 2
+assets_path = "/workspace/terraform-beginner-bootcamp-2023/public/public/assets/"
+content_version= 2
