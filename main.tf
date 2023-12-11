@@ -1,6 +1,6 @@
 terraform {
   required_providers {
-  terratowns = {
+    terratowns = {
       source  = "local.providers/local/terratowns"
       version = "1.0.0"
     }
@@ -51,7 +51,7 @@ DESCRIPTION
 
 
 module "home_payday_hosting" {
-  source         = "./modules/terrahome_aws"
+  source          = "./modules/terrahome_aws"
   user_uuid       = var.teacherseat_user_uuid
   public_path     = var.payday.public_path
   content_version = var.payday.content_version

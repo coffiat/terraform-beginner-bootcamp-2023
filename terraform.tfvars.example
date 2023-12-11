@@ -1,7 +1,7 @@
 terratowns_endpoint="https://terratowns.cloud/api"
 dragon-ball = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/dragon-ball"
-  content_version = 1 
+  content_version = 2
 }
 payday = {
   public_path = "/workspace/terraform-beginner-bootcamp-2023/public/payday"
